@@ -1,5 +1,9 @@
 import React from 'react';
 
+// В компоненте counter нужно вызвать методы onIncrement() и onDencrement(), передав их через пaраметры props.
+// Эти методы нужно реализовать в countersList и они должны обновлять значения value в состоянии counters.
+// Передаем их в качестве аргументов как onIncrement() и onDencrement() и вызываем их в дочерних элементах.
+
 const Counter = (props) => {
     // console.log(props);
     const { value } = props;
@@ -23,12 +27,12 @@ const Counter = (props) => {
             </span>
             <button
                 className='btn btn-primary btn-sm m-2'
-                onClick={() => props.onIncrement(props.value)}>
+                onClick={() => props.onIncrement(props.id)}>
                 +
             </button>
             <button
                 className='btn btn-primary btn-sm m-2'
-                onClick={() => props.onDecrement(props.value)}>
+                onClick={() => props.onDecrement(props.id)}>
                 -
             </button>
             <button
@@ -42,7 +46,3 @@ const Counter = (props) => {
 };
 
 export default Counter;
-
-// В компоненте counter нужно вызвать методы onIncrement() и onDencrement(), передав их через пaраметры props.
-// Эти методы нужно реализовать в countersList и они должны обновлять значения value в состоянии counters.
-// Передаем их в качестве аргументов как onIncrement() и onDencrement() и вызываем их в дочерних элементах.

@@ -12,14 +12,36 @@ const CountersList = () => {
 
     const [counters, setCounters] = useState(initialState);
 
-    const handleIncrement = (value) => {
-        // console.log(value);
-        setCounters(counters.forEach(count => count.value + 1));
+    const handleIncrement = (id) => {
+        // console.log(id);
+        setCounters((counters) => {
+
+            return counters.map((count) => {
+                if (count.id === id) {
+                    return {
+                        ...count,
+                        value: count.value + 1
+                    };
+                }
+                return count;
+            });
+        });
     };
 
-    const handleDecrement = (value) => {
-        // // console.log(value);
-        // setCounters(counters.forEach(count => count.value - 1));
+    const handleDecrement = (id) => {
+        // console.log(id);
+        setCounters((counters) => {
+
+            return counters.map((count) => {
+                if (count.id === id && count.value > 0) {
+                    return {
+                        ...count,
+                        value: count.value - 1
+                    };
+                }
+                return count;
+            });
+        });
     };
 
     const handleDelete = (id) => {
